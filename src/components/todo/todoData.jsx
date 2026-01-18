@@ -12,9 +12,14 @@ const ToDoData = (props) => {
     console.log("Props in ToDoData:", props);
     return (
         <div className="todo-data">
-            <div>Learning React</div>
-            <div>Watching Youtube</div>
-            <div>My name is {name}</div>
+            {/* <div>My name is {name}</div> */}
+            {ToDoList.map((item, index) => {
+                return (
+                    <div className="todo-item">
+                        {item.task}
+                        <button>Delete</button>
+                    </div>)
+            })}
             <div>
                 {JSON.stringify(ToDoList)}
             </div>
