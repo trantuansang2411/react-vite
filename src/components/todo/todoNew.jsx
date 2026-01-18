@@ -9,7 +9,7 @@ const ToDoNew = (props) => {
     // addNewToDo("Sang dep trai");
     const handleAddNewToDo = () => {
         // Logic to add new todo
-        console.log("Adding new todo:", valueInput);
+        addNewToDo(valueInput);
     }
     const handleInputChange = (name) => {
         setValueInput(name);

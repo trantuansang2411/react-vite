@@ -16,7 +16,11 @@ const App = () => {
     phone: "010-1234-5678"
   }
   const addNewToDo = (name) => {
-    console.log(`Add new todo for ${name}`);
+    const newToDo = {
+      id: ToDoList.length + 1,
+      task: name
+    }
+    setToDoList([...ToDoList, newToDo]);
   }
   return (
     <div className="todo-container">
