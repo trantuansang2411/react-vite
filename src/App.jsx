@@ -3,6 +3,8 @@ import ToDoData from "./components/todo/todoData.jsx";
 import ToDoNew from "./components/todo/todoNew.jsx";
 import reactLogo from "./assets/react.svg";
 import { useState } from "react";
+import Header from "./components/layout/header.jsx";
+import Footer from "./components/layout/footer.jsx";
 const App = () => {
   //{key: value}
   const [ToDoList, setToDoList] = useState([
@@ -27,22 +29,24 @@ const App = () => {
     setToDoList(result);
   }
   return (
-    <div className="todo-container">
-      <div className="todo-title">Todo List</div>
-      <ToDoNew
-        addNewToDo={addNewToDo}
-      />
-      { // Cách 1
-        ToDoList.length > 0 ?
-          <ToDoData
-            ToDoList={ToDoList}
-            DeleteItem={DeleteItem}
-          /> :
-          <div className="todo-image">
-            <img src={reactLogo} className="logo" />
-          </div>
-      }
-      { // Cách 2
+    <>
+      <Header />
+      <div className="todo-container">
+        <div className="todo-title">Todo List</div>
+        <ToDoNew
+          addNewToDo={addNewToDo}
+        />
+        { // Cách 1
+          ToDoList.length > 0 ?
+            <ToDoData
+              ToDoList={ToDoList}
+              DeleteItem={DeleteItem}
+            /> :
+            <div className="todo-image">
+              <img src={reactLogo} className="logo" />
+            </div>
+        }
+        { // Cách 2
       /* {ToDoList.length > 0 &&
         <ToDoData
           ToDoList={ToDoList}
@@ -54,7 +58,10 @@ const App = () => {
         </div>
         // nếu không có công việc nào thì hiển thị hình ảnh
       } */}
-    </div>
+      </div>
+      <Footer />
+    </>
+
   );
 }
 
