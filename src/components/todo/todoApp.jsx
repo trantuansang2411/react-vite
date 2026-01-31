@@ -1,0 +1,61 @@
+import "./todo.css";
+import ToDoData from "./todoData.jsx";
+import ToDoNew from "./todoNew.jsx";
+import reactLogo from "../../assets/react.svg";
+import { useState } from "react";
+
+const ToDoApp = () => {
+    //{key: value}
+    const [ToDoList, setToDoList] = useState([
+        // { id: 1, task: "Learning React" },
+        // { id: 2, task: "Watching Youtube" }
+    ]);
+    const Sang = "Sang";
+    const age = 20;
+    const data = {
+        address: "TPHCM",
+        phone: "010-1234-5678"
+    }
+    const addNewToDo = (name) => {
+        const newToDo = {
+            id: ToDoList.length + 1,
+            task: name
+        }
+        setToDoList([...ToDoList, newToDo]);
+    }
+    const DeleteItem = (id) => {
+        const result = ToDoList.filter((toDo => toDo.id !== id))
+        setToDoList(result);
+    }
+    return (
+        <div className="todo-container">
+            <div className="todo-title">Todo List</div>
+            <ToDoNew
+                addNewToDo={addNewToDo}
+            />
+            { // Cách 1
+                ToDoList.length > 0 ?
+                    <ToDoData
+                        ToDoList={ToDoList}
+                        DeleteItem={DeleteItem}
+                    /> :
+                    <div className="todo-image">
+                        <img src={reactLogo} className="logo" />
+                    </div>
+            }
+            { // Cách 2
+      /* {ToDoList.length > 0 &&
+        <ToDoData
+          ToDoList={ToDoList}
+        />
+      }
+      {ToDoList.length === 0 &&
+        <div className="todo-image">
+          <img src={reactLogo} className="logo" />
+        </div>
+        // nếu không có công việc nào thì hiển thị hình ảnh
+      } */}
+        </div>
+    )
+}
+export default ToDoApp
