@@ -28,15 +28,27 @@ const App = () => {
       <ToDoNew
         addNewToDo={addNewToDo}
       />
-      <ToDoData
-        name={Sang}
-        age={age}
-        data={data}
-        ToDoList={ToDoList}
-      />
-      <div className="todo-image">
-        <img src={reactLogo} className="logo" />
-      </div>
+      { // Cách 1
+        ToDoList.length > 0 ?
+          <ToDoData
+            ToDoList={ToDoList}
+          /> :
+          <div className="todo-image">
+            <img src={reactLogo} className="logo" />
+          </div>
+      }
+      { // Cách 2
+      /* {ToDoList.length > 0 &&
+        <ToDoData
+          ToDoList={ToDoList}
+        />
+      }
+      {ToDoList.length === 0 &&
+        <div className="todo-image">
+          <img src={reactLogo} className="logo" />
+        </div>
+        // nếu không có công việc nào thì hiển thị hình ảnh
+      } */}
     </div>
   );
 }
