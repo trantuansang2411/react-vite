@@ -1,8 +1,9 @@
 import { Button, Input, notification, Modal } from "antd";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createUserAPI } from "../../services/api.service";
 
-const FormUser = () => {
+const FormUser = (props) => {
+    const { loadUser } = props;
     const [fullNameInput, setFullnameInput] = useState("");
     const [emailInput, setEmailInput] = useState("");
     const [passwordInput, setPasswordInput] = useState("");
@@ -15,15 +16,23 @@ const FormUser = () => {
                 message: "Create User",
                 description: "You created an user"
             })
-            setIsModalOpen(false);
+            resetAndCloseModal();
+            await loadUser();
         }
         else {
             notification.error({
                 message: "Create Error User",
                 description: JSON.stringify(res.message)
             })
-            setIsModalOpen(false);
+            resetAndCloseModal();
         }
+    }
+    const resetAndCloseModal = () => {
+        setFullnameInput("");
+        setEmailInput("");
+        setPasswordInput("");
+        setPhoneInput("");
+        setIsModalOpen(false);
     }
     return (
         <div className="user-form" style={{ margin: "10px 0" }}>
