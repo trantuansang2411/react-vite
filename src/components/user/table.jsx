@@ -6,7 +6,7 @@ const TableUser = () => {
     ]);
 
     useEffect(() => {
-        loadUser();
+        loadUser(); // mục đích để như vậy là sẽ gọi 1 lần thôi khi rerender sẽ không chạy lại thằng này
     }, []);
 
     const columns = [
@@ -26,7 +26,7 @@ const TableUser = () => {
     const loadUser = async () => {
         const res = await fetchAllUserAPI();
         console.log("Check data", res.data);
-        setDataTable(res.data);
+        setDataTable(res.data); // khi gọi hàm set thì sẽ gọi tới useState là sẽ rerender 
     }
     return (<Table columns={columns} dataSource={dataTable} rowKey={"_id"} />)
 }
