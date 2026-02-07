@@ -1,5 +1,5 @@
-import FormUser from "../components/user/form";
-import TableUser from "../components/user/table";
+import FormUser from "../components/user/create.form";
+import TableUser from "../components/user/user.table";
 import { fetchAllUserAPI } from '../services/api.service';
 import { useEffect, useState } from 'react';
 

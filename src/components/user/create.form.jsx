@@ -41,7 +41,7 @@ const FormUser = (props) => {
                 <Button type="primary" onClick={() => setIsModalOpen(true)}>Create Button</Button>
             </div>
             <Modal
-                title="Create User"
+                title="Create An User"
                 closable={{ 'aria-label': 'Custom Close Button' }}
                 open={isModalOpen} // điều khiển trạng thái modal biến này quản lý để cho react biết useState là true hay false
                 onOk={() => handleCreate()}
