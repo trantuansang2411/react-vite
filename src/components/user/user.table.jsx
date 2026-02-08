@@ -4,7 +4,7 @@ import UpdateForm from './update.form';
 import { useState } from 'react';
 
 const TableUser = (props) => {
-    const { dataTable } = props;
+    const { dataTable, loadUser } = props;
 
     const [isModalUpdateOpen, SetIsModalUpdateOpen] = useState(false);
     const [dataUpdate, SetDataUpdate] = useState(null);
@@ -56,6 +56,7 @@ const TableUser = (props) => {
                 SetIsModalUpdateOpen={SetIsModalUpdateOpen}
                 dataUpdate={dataUpdate}
                 SetDataUpdate={SetDataUpdate}
+                loadUser={loadUser}
             />
         </>
     )
